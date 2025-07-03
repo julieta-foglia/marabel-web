@@ -8,8 +8,21 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-nunito);
   --font-mono: var(--font-geist-mono);
+  --color-primary-100: #ffd7b5;
+  --color-primary-200: #ffb38a;
+  --color-primary-300: #ff9248;
+  --color-primary-400: #ff6700;
+  --color-primary-500: #e24c00;
+  --color-primary-600: #cc5500;
+  --color-primary-700: #e27a53;
+  --color-primary-800: #e34a27;
+  --color-primary: #f4801f;
+  --color-secondary: #ffb770;
+  --color-accent: #cc5500;
+  --color-grey-primary: #333333;
+  --color-grey-secondary: #4d4d4d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +33,7 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }

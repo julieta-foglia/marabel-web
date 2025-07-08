@@ -35,6 +35,7 @@ export const useGetBanner = () => {
   } = useMutation({
     mutationFn: (payload: BannerPayload) => getBannerMutate(payload),
   });
+
   return {
     getBanner,
     banner: data,

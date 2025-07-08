@@ -49,7 +49,89 @@ query MyQuery {
         }
       }
       tituloPagina
+      tituloPagina
+      heroBanner {
+        disposicion
+        pretitulo
+        subtitulo
+        titulo
+      }
+      bannerCollection(limit: 10) {
+        items {
+          pretitulo
+          subtitulo
+          titulo
+          disposicion
+          boton {
+            url
+            texto
+          }
+          imagenCollection(limit: 1) {
+            items {
+              link
+            }
+          }
+          archivosCollection(limit: 1) {
+            items {
+              url
+            }
+          }
+        }
+      }
     }
   }
 }
+`;
+
+export const productsQuery = (category?: string) => gql`
+query MyQuery {
+  productoCollection${
+    Boolean(category) ? `(where: {categoria: "${category}"})` : ""
+  } {
+    items {
+      titulo
+      categoria {
+        nombre
+        icono
+      }
+      imagenCollection(limit: 1) {
+        items {
+          url
+        }
+      }
+    }
+  }
+}
+`;
+
+export const productQuery = (title: string) => gql`
+query MyQuery {
+  productoCollection(where: {titulo: "${title}"}) {
+    items {
+      titulo
+      categoria {
+        nombre
+      }
+      descripcion
+      contenido
+      presentacion
+      imagenCollection(limit: 1) {
+        items {
+          url
+        }
+      }
+    }
+  }
+}
+`;
+
+export const categoryQuery = gql`
+  query MyQuery {
+    categoriaCollection {
+      items {
+        icono
+        nombre
+      }
+    }
+  }
 `;

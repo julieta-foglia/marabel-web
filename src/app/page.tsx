@@ -1,28 +1,27 @@
-"use client";
-
+import { pageQuery } from "./cms/constants";
+import { getQuery } from "./cms/getQuery";
+import Banner, { BannerProps } from "./components/Banner";
 import HeroBanner from "./components/HeroBanner";
 
-export default function Home() {
+interface QueryResponse {
+  paginaCollection: {
+    items: Array<any>;
+  };
+}
+
+export default async function Home() {
+  const query = pageQuery("Home");
+  const data = await getQuery<QueryResponse>({ query });
+  const [page] = data.data.paginaCollection.items;
+  console.log(page);
   return (
     <div className="font-[family-name:var(--font-nunito)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <HeroBanner />
-        <div className="flex flex-col gap-6 mx-20 mb-20 items-center justify-center">
-          <div className="flex flex-col items-center">
-            <p className="font-[family-name:var(--font-raleway)] text-2xl text-accent font-medium">
-              Colección 2025
-            </p>
-            <p className="font-[family-name:var(--font-nunito)] text-5xl font-semibold text-primary">
-              Los más elegidos
-            </p>
-            <p className="font-[family-name:var(--font-nunito)] text-base text-grey-primary mt-4">
-              Amplia gama de fragancias en diferentes formatos. En Marabel vas a
-              encontrar aromatizadores para tela y ambientes, spray para el
-              hogar, aerosoles, varillas difusoras, aceites esenciales,
-              sahumerios, jabones de manos, body splash, perfumes, cremas y
-              mucho más!
-            </p>
-          </div>
+        <HeroBanner title="hero" />
+        <div className="flex flex-col gap-6 mb-20 items-center justify-center w-full">
+          {page.bannerCollection.items.map((banner: BannerProps) => (
+            <Banner key={banner.titulo} {...banner} />
+          ))}
         </div>
       </main>
     </div>

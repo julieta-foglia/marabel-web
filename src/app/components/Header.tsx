@@ -1,23 +1,38 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useGetAsset } from "../cms";
+import { categoryQuery, imageFileQuery } from "../cms/constants";
+import { getQuery } from "../cms/getQuery";
+import ProductsMenu from "./ProductsMenu/ProductsMenu";
 
-export default function Header() {
-  const { getAsset, asset } = useGetAsset();
+interface QueryResponse {
+  assetCollection: {
+    items: Array<any>;
+  };
+}
 
-  useEffect(() => {
-    getAsset({ title: "logo" });
-  }, []);
+interface CategoryQueryResponse {
+  categoriaCollection: {
+    items: Array<any>;
+  };
+}
+
+export default async function Header() {
+  const query = imageFileQuery("logo");
+  const data = await getQuery<QueryResponse>({ query });
+  const [asset] = data.data.assetCollection.items;
+
+  const categoryData = await getQuery<CategoryQueryResponse>({
+    query: categoryQuery,
+  });
+  const categories = categoryData.data.categoriaCollection.items;
 
   return (
-    <header className="bg-white px-10 py-5 shadow-2xs font-[family-name:var(--font-quicksand)] flex flex-row items-center justify-between">
-      {asset && (
+    <header className="bg-white px-10 py-5 shadow-2xs font-[family-name:var(--font-raleway)] flex flex-row items-center justify-between">
+      <Link href="/">
         <Image src={asset?.url} width={100} height={100} alt="logo marabel" />
-      )}
+      </Link>
       <ol className="flex flex-row gap-5 font-semibold text-shadow-grey-primary text-lg">
-        <Link href="/productos">Productos</Link>
+        <ProductsMenu categories={categories} />
         <Link href="/contacto">Contacto</Link>
       </ol>
     </header>

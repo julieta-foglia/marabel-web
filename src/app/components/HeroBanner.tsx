@@ -1,35 +1,34 @@
-"use client";
-import { useEffect, useMemo } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useGetBanner } from "../cms";
-
-interface SlideProps {
-  id: number;
-  image: string;
-}
+import { bannerQuery } from "../cms/constants";
+import { getQuery } from "../cms/getQuery";
+import Slider from "./Slider";
 
 interface ItemProps {
   url: string;
 }
 
-export default function HeroBanner() {
-  const { getBanner, banner } = useGetBanner();
+interface HeroBannerProps {
+  title: string;
+}
 
-  useEffect(() => {
-    getBanner({ title: "hero" });
-  }, []);
+interface BannerQueryResponse {
+  bannerCollection: {
+    items: Array<any>;
+  };
+}
 
-  const Slides = useMemo(() => {
-    return banner?.archivosCollection?.items.map(
-      (item: ItemProps, index: number) => {
-        return { id: index, image: item.url };
-      }
-    );
-  }, [banner]);
+export default async function HeroBanner({ title }: HeroBannerProps) {
+  const query = bannerQuery(title);
+  const data = await getQuery<BannerQueryResponse>({ query });
+  const [banner] = data.data.bannerCollection.items;
+
+  const Slides = banner?.archivosCollection?.items.map(
+    (item: ItemProps, index: number) => {
+      return { id: index, image: item.url };
+    }
+  );
 
   if (!banner) {
     return null;
@@ -37,25 +36,7 @@ export default function HeroBanner() {
 
   return (
     <div className="w-full h-[600px]">
-      <Swiper
-        modules={[Navigation, Autoplay, Pagination]}
-        navigation
-        autoplay={true}
-        loop
-        className="h-full"
-        pagination={{
-          dynamicBullets: true,
-        }}
-      >
-        {Slides.map((slide: SlideProps) => (
-          <SwiperSlide key={slide.id}>
-            <div
-              className="w-full h-[600px] bg-center flex items-center justify-center text-white"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            ></div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <Slider slides={Slides} />
     </div>
   );
 }

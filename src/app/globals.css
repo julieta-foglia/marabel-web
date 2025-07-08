@@ -20,9 +20,20 @@
   --color-primary-800: #e34a27;
   --color-primary: #f4801f;
   --color-secondary: #ffb770;
+  --color-secondary-opacity: #ffb77040;
   --color-accent: #cc5500;
   --color-grey-primary: #333333;
   --color-grey-secondary: #4d4d4d;
+  --animate-wiggle: wiggle 0.5s ease-in-out 1;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-6deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,4 +47,23 @@ body {
   background: var(--foreground);
   color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* globals.css */
+.material-symbols {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 24;
 }

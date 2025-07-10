@@ -1,9 +1,9 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { bannerQuery } from "../cms/constants";
-import { getQuery } from "../cms/getQuery";
-import Slider from "./Slider";
+import { bannerQuery } from "../../cms/constants";
+import { getQuery } from "../../cms/getQuery";
+import Slider from "../Slider";
 
 interface ItemProps {
   url: string;

@@ -1,6 +1,6 @@
 import { pageQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
-import HeroBanner from "../components/HeroBanner";
+import HeroBanner from "../components/Banner/HeroBanner";
 import LinkIcon from "../components/LinkIcon";
 
 interface QueryResponse {

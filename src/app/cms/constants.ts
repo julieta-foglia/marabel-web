@@ -56,7 +56,7 @@ query MyQuery {
         subtitulo
         titulo
       }
-      bannerCollection(limit: 10) {
+      bannerCollection(limit: 8) {
         items {
           pretitulo
           subtitulo
@@ -66,9 +66,13 @@ query MyQuery {
             url
             texto
           }
-          imagenCollection(limit: 1) {
+          imagenCollection(limit: 4) {
             items {
               link
+              titulo
+              archivo {
+                url
+              }
             }
           }
           archivosCollection(limit: 1) {

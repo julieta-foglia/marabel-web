@@ -1,7 +1,7 @@
 import { pageQuery } from "./cms/constants";
 import { getQuery } from "./cms/getQuery";
-import Banner, { BannerProps } from "./components/Banner";
-import HeroBanner from "./components/HeroBanner";
+import Banner, { BannerProps } from "./components/Banner/Banner";
+import HeroBanner from "./components/Banner/HeroBanner";
 
 interface QueryResponse {
   paginaCollection: {
@@ -13,7 +13,7 @@ export default async function Home() {
   const query = pageQuery("Home");
   const data = await getQuery<QueryResponse>({ query });
   const [page] = data.data.paginaCollection.items;
-  console.log(page);
+
   return (
     <div className="font-[family-name:var(--font-nunito)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

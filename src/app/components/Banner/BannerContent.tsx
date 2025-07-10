@@ -35,7 +35,14 @@ export default function BannerContent({
           </p>
         )}
         {titulo && (
-          <p className="text-5xl text-primary font-semibold mt-2">{titulo}</p>
+          <p
+            className={clsx(
+              " text-primary font-semibold mt-2",
+              centered ? "text-7xl" : "text-5xl"
+            )}
+          >
+            {titulo}
+          </p>
         )}
         {subtitulo && (
           <p

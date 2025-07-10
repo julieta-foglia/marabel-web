@@ -27,7 +27,9 @@ export default function BannerFondo({
       )}
       style={{
         backgroundImage: `
-        linear-gradient(to bottom, white, rgb(0 0 0 / 60%)),
+        linear-gradient(white 0%,
+          white 50%,
+          rgba(0, 0, 0, 0.6) 100%),
         url(${imageUrl})
       `,
       }}

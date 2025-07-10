@@ -1,21 +1,31 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
 interface LinkIconProps {
-  text: string;
+  text?: string;
   icon: string;
   link: string;
+  className?: string;
 }
 
-export default function LinkIcon({ text, icon, link }: LinkIconProps) {
+export default function LinkIcon({
+  text,
+  icon,
+  link,
+  className,
+}: LinkIconProps) {
   return (
     <Link
       href={link}
-      className="flex flex-row text-grey-primary items-center gap-4"
+      className={clsx(
+        "flex flex-row text-grey-primary items-center gap-4",
+        className
+      )}
     >
-      <Image src={icon} width={30} height={30} alt={text} />
+      <Image src={icon} width={30} height={30} alt={text ?? ""} />
       {text}
     </Link>
   );

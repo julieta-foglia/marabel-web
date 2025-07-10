@@ -29,7 +29,7 @@ export default function Slider({ slides }: SliderProps) {
       {slides.map((slide: SlideProps) => (
         <SwiperSlide key={slide.id}>
           <div
-            className="w-full h-[600px] bg-center flex items-center justify-center text-white"
+            className="w-full h-[400px] bg-center flex items-center justify-center text-white bg-cover"
             style={{ backgroundImage: `url(${slide.image})` }}
           ></div>
         </SwiperSlide>

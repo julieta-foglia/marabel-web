@@ -91,8 +91,7 @@ body {
 }
 
 .zoom-in {
-  cursor: zoom-in;
-  background: linear-gradient(145deg, #ffffff, #ffb77040);
+  cursor: pointer;
   border: 2px solid #f4801f;
 }
 
@@ -101,7 +100,7 @@ body {
 }
 
 .zoom-in-neutral {
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .zoom-in-neutral:hover {

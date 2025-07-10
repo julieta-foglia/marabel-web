@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -31,11 +32,11 @@ export default async function HeroBanner({ title }: HeroBannerProps) {
   );
 
   if (!banner) {
-    return null;
+    return <div className="w-full h-[600px]"></div>;
   }
 
   return (
-    <div className="w-full h-[600px]">
+    <div className={clsx("w-full h-[400px]")}>
       <Slider slides={Slides} />
     </div>
   );

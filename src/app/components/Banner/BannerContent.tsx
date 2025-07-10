@@ -58,7 +58,7 @@ export default function BannerContent({
       {boton && (
         <Link
           href={boton.url}
-          className="font-[family-name:var(--font-raleway)] font-semibold w-fit hover:border cursor-box zoom-in py-2 px-4 rounded-lg text-grey-primary"
+          className="font-[family-name:var(--font-nunito)] font-bold w-fit hover:border cursor-box zoom-in py-2 px-4 rounded-lg text-white bg-accent shadow-lg"
         >
           {boton.texto}
         </Link>

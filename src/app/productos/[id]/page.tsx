@@ -27,13 +27,13 @@ export default async function DetalleProducto({
   const [product] = data.data.productoCollection.items;
 
   return (
-    <div className="px-20 pb-20 pt-10 font-[family-name:var(--font-nunito)] flex flex-col">
+    <div className="px-20 pb-20 pt-10 font-[family-name:var(--font-nunito)] flex flex-col relative">
       <div className="flex flex-row gap-2 items-center pb-4">
-        <Link href="/productos" className="cursor-pointer">
+        <Link href="/productos" className="cursor-pointer text-lg">
           Productos
         </Link>
-        <MaterialIcon name="arrow_forward_ios" className="text-base" />
-        <p className="font-bold">{product.titulo}</p>
+        <MaterialIcon name="arrow_forward_ios" fontSize={16} />
+        <p className="font-bold text-lg">{product.titulo}</p>
       </div>
       <div className="flex flex-row gap-10 pt-6">
         <div className="flex flex-row gap-8">

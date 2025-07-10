@@ -18,7 +18,7 @@ export default async function Home() {
     <div className="font-[family-name:var(--font-nunito)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <HeroBanner title="hero" />
-        <div className="flex flex-col gap-6 mb-20 items-center justify-center w-full">
+        <div className="flex flex-col gap-6 items-center justify-center w-full">
           {page.bannerCollection.items.map((banner: BannerProps) => (
             <Banner key={banner.titulo} {...banner} />
           ))}

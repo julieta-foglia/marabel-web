@@ -49,11 +49,11 @@ export default function Productos() {
   }, [products, selectedCategory]);
 
   return (
-    <div className="font-[family-name:var(--font-nunito)] px-20 pb-20 pt-10 flex flex-col">
-      <p className="text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary">
+    <div className="font-[family-name:var(--font-nunito)] pt-10 flex flex-col relative h-[100vh]">
+      <p className="text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-20">
         Productos
       </p>
-      <div className="font-[family-name:var(--font-nunito)] flex flex-row gap-10 pt-8">
+      <div className="font-[family-name:var(--font-nunito)] flex flex-row gap-10 pt-8 px-20 z-10">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <p className="text-xl text-primary font-semibold">Categorías</p>
@@ -84,11 +84,11 @@ export default function Productos() {
           )}
         </div>
 
-        <div className="grid grid-cols-4 ">
+        <div className="grid grid-cols-4 gap-2 z-10">
           {mappedProducts?.map((product) => (
             <Link
               href={`/productos/${product.titulo.replaceAll(" ", "-")}`}
-              className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center"
+              className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center transition-all ease-in hover:scale-105 min-h-44"
               key={product.titulo}
             >
               <>
@@ -105,6 +105,26 @@ export default function Productos() {
             </Link>
           ))}
         </div>
+      </div>
+      <div className="absolute bottom-10 w-full overflow-hidden">
+        <svg
+          className="w-full h-auto"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ffb77040"
+            d="
+              M0,64
+              C 120,160 360,-32 720,96
+              C 1080,224 1320,0 1440,64
+              L 1440,320
+              C 1320,224 1080,352 720,224
+              C 360,96 120,320 0,256
+              Z
+            "
+          />
+        </svg>
       </div>
     </div>
   );

@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
-import { Cabin, Nunito_Sans, Quicksand, Raleway } from "next/font/google";
+import { Nunito_Sans, Raleway } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QueryClientProviderComponent from "./components/queryClientProvider";
 import "./globals.css";
 
 const nunito = Nunito_Sans({
   variable: "--font-nunito",
-  subsets: ["latin"],
-});
-
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const cabin = Cabin({
-  variable: "--font-cabin",
   subsets: ["latin"],
 });
 
@@ -47,11 +37,11 @@ export default function RootLayout({
       <NuqsAdapter>
         <QueryClientProviderComponent>
           <body
-            className={`${nunito.variable} ${quicksand.variable} ${raleway.variable} ${cabin.variable} antialiased`}
+            className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col justify-between`}
           >
             <Header />
             {children}
-            <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
+            <Footer />
           </body>
         </QueryClientProviderComponent>
       </NuqsAdapter>

@@ -37,10 +37,13 @@ export default function RootLayout({
       <NuqsAdapter>
         <QueryClientProviderComponent>
           <body
-            className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col justify-between`}
+            className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
           >
             <Header />
-            {children}
+            <main className="font-[family-name:var(--font-nunito)] flex-1">
+              {children}
+            </main>
+
             <Footer />
           </body>
         </QueryClientProviderComponent>

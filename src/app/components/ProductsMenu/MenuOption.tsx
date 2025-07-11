@@ -11,6 +11,7 @@ export interface MenuOptionProps {
 
 export default function MenuOption({ nombre, icono }: MenuOptionProps) {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Link
       href={`/productos?categoria=${nombre}`}
@@ -24,7 +25,7 @@ export default function MenuOption({ nombre, icono }: MenuOptionProps) {
         name={icono}
         className={isHovered ? "animate-wiggle fill-mode-both" : ""}
       />
-      <p className={clsx(isHovered ? "border-b border-b-secondary" : "")}>
+      <p className="hover:underline hover:underline-offset-4 hover:decoration-accent">
         {nombre}
       </p>
     </Link>

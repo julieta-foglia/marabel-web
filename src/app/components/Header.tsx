@@ -33,7 +33,12 @@ export default async function Header() {
       </Link>
       <ol className="flex flex-row gap-5 font-semibold text-shadow-grey-primary text-lg">
         <ProductsMenu categories={categories} />
-        <Link href="/contacto">Contacto</Link>
+        <Link
+          href="/contacto"
+          className="hover:text-accent hover:scale-110 transition-all ease-in"
+        >
+          Contacto
+        </Link>
       </ol>
     </header>
   );

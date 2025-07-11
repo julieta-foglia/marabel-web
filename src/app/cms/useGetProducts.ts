@@ -12,7 +12,18 @@ interface Payload {
   category?: string;
 }
 
-const getProductsMutate = async (props?: Payload) => {
+export interface ProductProps {
+  titulo: string;
+  categoria: {
+    nombre: string;
+    icono: string;
+  };
+  imagenCollection: {
+    items: Array<{ url: string }>;
+  };
+}
+
+const getProductsMutate = async (props?: Payload): Promise<ProductProps[]> => {
   try {
     const query = productsQuery(props?.category);
     const data = await getQuery<QueryResponse>({ query });

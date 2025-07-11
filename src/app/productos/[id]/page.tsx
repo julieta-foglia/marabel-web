@@ -27,7 +27,7 @@ export default async function DetalleProducto({
   const [product] = data.data.productoCollection.items;
 
   return (
-    <div className="px-20 pb-20 pt-10 font-[family-name:var(--font-nunito)] flex flex-col relative">
+    <div className="px-20 pb-20 pt-10 flex flex-col relative">
       <div className="flex flex-row gap-2 items-center pb-4">
         <Link href="/productos" className="cursor-pointer text-lg">
           Productos
@@ -37,7 +37,7 @@ export default async function DetalleProducto({
       </div>
       <div className="flex flex-row gap-10 pt-6">
         <div className="flex flex-row gap-8">
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2">
             <Image
               src={product.imagenCollection?.items[0].url}
               height={500}

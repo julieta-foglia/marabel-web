@@ -31,7 +31,7 @@ export default function Slider({ slides }: SliderProps) {
           <div
             className="w-full h-[400px] bg-center flex items-center justify-center text-white bg-cover"
             style={{ backgroundImage: `url(${slide.image})` }}
-          ></div>
+          />
         </SwiperSlide>
       ))}
     </Swiper>

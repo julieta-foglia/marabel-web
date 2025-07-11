@@ -31,7 +31,11 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
         <ol className="flex flex-col gap-5 text-shadow-grey-primary text-base">
           <div className="relative inline-block z-20 hover:scale-110 transition-all ease-in">
             <div className={clsx("flex flex-row gap-2 relative")}>
-              <Link href="/productos" className="font-semibold">
+              <Link
+                href="/productos"
+                className="font-semibold"
+                onClick={() => setShowMenu(false)}
+              >
                 Productos
               </Link>
               <button

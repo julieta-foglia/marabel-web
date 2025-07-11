@@ -12,7 +12,7 @@ export default function ProductCard(product: ProductProps) {
   return (
     <Link
       href={`/productos/${product.titulo.replaceAll(" ", "-")}`}
-      className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center transition-all ease-in hover:scale-105 min-h-44 min-w-44 hover:border hover:border-secondary"
+      className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center transition-all ease-in hover:scale-105 min-h-44 md:min-w-44 hover:border hover:border-secondary"
       key={product.titulo}
     >
       <>

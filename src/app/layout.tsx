@@ -43,7 +43,6 @@ export default function RootLayout({
             <main className="font-[family-name:var(--font-nunito)] flex-1">
               {children}
             </main>
-
             <Footer />
           </body>
         </QueryClientProviderComponent>

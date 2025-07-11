@@ -32,11 +32,11 @@ export default async function HeroBanner({ title }: HeroBannerProps) {
   );
 
   if (!banner) {
-    return <div className="w-full h-[600px]"></div>;
+    return <div className="w-full h-[200px] md:h-[600px]"></div>;
   }
 
   return (
-    <div className={clsx("w-full h-[400px]")}>
+    <div className={clsx("w-full h-[200px] md:h-[400px]")}>
       <Slider slides={Slides} />
     </div>
   );

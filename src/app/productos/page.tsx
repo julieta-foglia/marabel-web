@@ -40,17 +40,17 @@ export default function Productos() {
 
   return (
     <div className="pt-10 flex flex-col relative flex-1 mb-6">
-      <p className="text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-20">
+      <p className="text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-8 md:mx-20">
         Productos
       </p>
-      <div className="flex flex-row gap-10 pt-8 px-20 z-10">
+      <div className="flex flex-col md:flex-row gap-10 pt-8 px-6 md:px-20 z-10">
         <Categories
           setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
           products={products}
         />
 
-        <div className="grid grid-cols-4 gap-2 z-10">
+        <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10">
           {mappedProducts?.map((product, index) => (
             <ProductCard {...product} key={index} />
           ))}

@@ -8,8 +8,8 @@ import { BannerProps } from "./Banner";
 import BannerContent from "./BannerContent";
 
 const DISPOSICION: Record<string, string> = {
-  "imagen a izquierda": "flex-row",
-  "imagen a derecha": "flex-row-reverse",
+  "imagen a izquierda": "flex-col md:flex-row",
+  "imagen a derecha": "flex-col-reverse pt-4 md:pt-0 md:flex-row-reverse",
 };
 
 const SVG: Record<string, string> = {
@@ -48,7 +48,7 @@ export default function BannerImagen({
       />
       <div className="relative">
         <OrganicSvg className={SVG[disposicion]} />
-        <div className="relative z-10">
+        <div className={clsx("relative z-10")}>
           <BannerContent
             pretitulo={pretitulo}
             titulo={titulo}

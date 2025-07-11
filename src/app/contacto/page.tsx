@@ -36,6 +36,7 @@ export default async function Contacto() {
                   text={item.texto}
                   link={item.url}
                   icon={item.icono.url}
+                  className="hover:underline hover:underline-offset-4 hover:decoration-primary transition-all ease-in"
                 />
               );
             })}

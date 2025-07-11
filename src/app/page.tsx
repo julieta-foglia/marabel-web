@@ -2,16 +2,11 @@ import { pageQuery } from "./cms/constants";
 import { getQuery } from "./cms/getQuery";
 import Banner, { BannerProps } from "./components/Banner/Banner";
 import HeroBanner from "./components/Banner/HeroBanner";
-
-interface QueryResponse {
-  paginaCollection: {
-    items: Array<any>;
-  };
-}
+import { PageQueryResponse } from "./types";
 
 export default async function Home() {
   const query = pageQuery("Home");
-  const data = await getQuery<QueryResponse>({ query });
+  const data = await getQuery<PageQueryResponse>({ query });
   const [page] = data.data.paginaCollection.items;
 
   return (

@@ -1,19 +1,9 @@
 import { productQuery } from "@/app/cms/constants";
 import { getQuery } from "@/app/cms/getQuery";
 import MaterialIcon from "@/app/components/MaterialIcon";
+import { ProductQueryResponse } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
-
-interface QueryResponse {
-  productoCollection: {
-    items: Array<any>;
-  };
-}
-
-interface Product {
-  titulo: string;
-  descripcion: string;
-}
 
 export default async function DetalleProducto({
   params,
@@ -23,7 +13,7 @@ export default async function DetalleProducto({
   const { id } = await params;
 
   const query = productQuery(id.replaceAll("-", " "));
-  const data = await getQuery<QueryResponse>({ query });
+  const data = await getQuery<ProductQueryResponse>({ query });
   const [product] = data.data.productoCollection.items;
 
   return (

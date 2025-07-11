@@ -2,11 +2,12 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
+import { CategoryProps } from "../types";
 import MaterialIcon from "./MaterialIcon";
 import MenuOption from "./ProductsMenu/MenuOption";
 
 interface HeaderMenuProps {
-  categories: Array<{ nombre: string; icono: string }>;
+  categories: Array<CategoryProps>;
 }
 
 export default function HeaderMenu({ categories }: HeaderMenuProps) {

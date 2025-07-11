@@ -1,3 +1,4 @@
+import { BannerQueryResponse } from "@/app/types";
 import clsx from "clsx";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,12 +13,6 @@ interface ItemProps {
 
 interface HeroBannerProps {
   title: string;
-}
-
-interface BannerQueryResponse {
-  bannerCollection: {
-    items: Array<any>;
-  };
 }
 
 export default async function HeroBanner({ title }: HeroBannerProps) {

@@ -1,8 +1,8 @@
 "use client";
 import { useIsVisible } from "@/app/hooks/useIsVIsible";
+import { BannerProps } from "@/app/types";
 import clsx from "clsx";
 import { useRef } from "react";
-import { BannerProps } from "./Banner";
 import BannerContent from "./BannerContent";
 
 export default function BannerFondo({

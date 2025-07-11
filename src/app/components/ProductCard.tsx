@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-interface ProductProps {
-  titulo: string;
-  imagenCollection: {
-    items: Array<{ url: string }>;
-  };
-}
+import { ProductProps } from "../types";
 
 export default function ProductCard(product: ProductProps) {
   return (

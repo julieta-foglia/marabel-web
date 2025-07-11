@@ -1,14 +1,9 @@
 "use client";
+import { MenuOptionProps } from "@/app/types";
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 import MaterialIcon from "../MaterialIcon";
-
-export interface MenuOptionProps {
-  nombre: string;
-  icono: string;
-  onClick?: () => void;
-}
 
 export default function MenuOption({
   nombre,

@@ -2,24 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { categoryQuery, imageFileQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
+import { AssetQueryResponse, CategoryQueryResponse } from "../types";
 import HeaderMenu from "./HeaderMenu";
 import ProductsMenu from "./ProductsMenu/ProductsMenu";
 
-interface QueryResponse {
-  assetCollection: {
-    items: Array<any>;
-  };
-}
-
-interface CategoryQueryResponse {
-  categoriaCollection: {
-    items: Array<any>;
-  };
-}
-
 export default async function Header() {
   const query = imageFileQuery("logo");
-  const data = await getQuery<QueryResponse>({ query });
+  const data = await getQuery<AssetQueryResponse>({ query });
   const [asset] = data.data.assetCollection.items;
 
   const categoryData = await getQuery<CategoryQueryResponse>({

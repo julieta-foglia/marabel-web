@@ -2,7 +2,7 @@ import MaterialIcon from "../MaterialIcon";
 
 interface CategoriesProps {
   selectedCategory: string | null;
-  setSelectedCategory: any;
+  setSelectedCategory: (arg?: string | null) => void;
 }
 
 export default function SelectedCategories({

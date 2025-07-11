@@ -1,10 +1,10 @@
 "use client";
 import { useIsVisible } from "@/app/hooks/useIsVIsible";
+import { BannerProps } from "@/app/types";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRef } from "react";
 import { OrganicSvg } from "../Svg/OrganicSvg";
-import { BannerProps } from "./Banner";
 import BannerContent from "./BannerContent";
 
 const DISPOSICION: Record<string, string> = {

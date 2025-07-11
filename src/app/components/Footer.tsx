@@ -1,16 +1,11 @@
 import { pageQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
+import { LinkProps, PageQueryResponse } from "../types";
 import LinkIcon from "./LinkIcon";
-
-interface QueryResponse {
-  paginaCollection: {
-    items: Array<any>;
-  };
-}
 
 export default async function Footer() {
   const query = pageQuery("Contacto");
-  const data = await getQuery<QueryResponse>({ query });
+  const data = await getQuery<PageQueryResponse>({ query });
   const [page] = data.data.paginaCollection.items;
 
   if (!page || !page.linksContactoCollection.items.length) {
@@ -19,7 +14,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-white px-10 py-5 shadow-2xs flex flex-row items-center justify-center gap-4 w-full">
-      {page.linksContactoCollection.items.map((item: any) => {
+      {page.linksContactoCollection.items.map((item: LinkProps) => {
         return (
           <LinkIcon
             key={item.texto}

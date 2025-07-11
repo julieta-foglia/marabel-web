@@ -1,11 +1,11 @@
 "use client";
 import { useIsVisible } from "@/app/hooks/useIsVIsible";
+import { BannerProps } from "@/app/types";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import CrossSvg from "../Svg/CrossSvg";
-import { BannerProps } from "./Banner";
 import BannerContent from "./BannerContent";
 
 export default function BannerProductos({

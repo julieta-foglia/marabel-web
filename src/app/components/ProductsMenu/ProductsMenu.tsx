@@ -1,7 +1,8 @@
 "use client";
+import { MenuOptionProps } from "@/app/types";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import MenuOption, { MenuOptionProps } from "./MenuOption";
+import MenuOption from "./MenuOption";
 
 interface ProductsMenuProps {
   categories: Array<MenuOptionProps>;

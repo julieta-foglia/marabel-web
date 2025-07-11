@@ -2,16 +2,11 @@ import { pageQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
 import HeroBanner from "../components/Banner/HeroBanner";
 import LinkIcon from "../components/LinkIcon";
-
-interface QueryResponse {
-  paginaCollection: {
-    items: Array<any>;
-  };
-}
+import { LinkProps, PageQueryResponse } from "../types";
 
 export default async function Contacto() {
   const query = pageQuery("Contacto");
-  const data = await getQuery<QueryResponse>({ query });
+  const data = await getQuery<PageQueryResponse>({ query });
   const [page] = data.data.paginaCollection.items;
 
   if (!page || !page.linksContactoCollection.items.length) {
@@ -29,7 +24,7 @@ export default async function Contacto() {
             whatsapp
           </p>
           <div className="flex flex-col gap-3">
-            {page.linksContactoCollection.items.map((item: any) => {
+            {page.linksContactoCollection.items.map((item: LinkProps) => {
               return (
                 <LinkIcon
                   key={item.texto}

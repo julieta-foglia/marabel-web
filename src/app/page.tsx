@@ -1,8 +1,8 @@
 import { pageQuery } from "./cms/constants";
 import { getQuery } from "./cms/getQuery";
-import Banner, { BannerProps } from "./components/Banner/Banner";
+import Banner from "./components/Banner/Banner";
 import HeroBanner from "./components/Banner/HeroBanner";
-import { PageQueryResponse } from "./types";
+import { BannerProps, PageQueryResponse } from "./types";
 
 export default async function Home() {
   const query = pageQuery("Home");

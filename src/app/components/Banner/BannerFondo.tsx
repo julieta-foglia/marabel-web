@@ -12,7 +12,7 @@ export default function BannerFondo({
   boton,
   archivosCollection,
 }: BannerProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useIsVisible(ref);
   const imageUrl = archivosCollection.items[0].url;
 

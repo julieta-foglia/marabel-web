@@ -15,7 +15,7 @@ export default function BannerProductos({
   boton,
   imagenCollection,
 }: BannerProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useIsVisible(ref);
 
   return (

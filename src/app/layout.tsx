@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Raleway } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next";
+import { Suspense } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QueryClientProviderComponent from "./components/queryClientProvider";
@@ -31,21 +32,23 @@ export default function RootLayout({
       <head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
         />
       </head>
       <NuqsAdapter>
-        <QueryClientProviderComponent>
-          <body
-            className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
-          >
-            <Header />
-            <main className="font-[family-name:var(--font-nunito)] flex-1">
-              {children}
-            </main>
-            <Footer />
-          </body>
-        </QueryClientProviderComponent>
+        <Suspense>
+          <QueryClientProviderComponent>
+            <body
+              className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
+            >
+              <Header />
+              <main className="font-[family-name:var(--font-nunito)] flex-1">
+                {children}
+              </main>
+              <Footer />
+            </body>
+          </QueryClientProviderComponent>
+        </Suspense>
       </NuqsAdapter>
     </html>
   );

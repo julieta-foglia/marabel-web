@@ -1,14 +1,8 @@
 "use client";
-import { CategoryProps, ProductProps } from "@/app/types";
+import { CategoriesProps, CategoryProps } from "@/app/types";
 import clsx from "clsx";
 import { useMemo } from "react";
 import MaterialIcon from "../MaterialIcon";
-
-interface CategoriesProps {
-  products?: ProductProps[];
-  setSelectedCategory: (arg?: string | null) => void;
-  selectedCategory?: string | null;
-}
 
 type CategoriesArrayProps = undefined | Array<CategoryProps>;
 

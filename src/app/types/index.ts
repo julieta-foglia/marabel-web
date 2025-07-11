@@ -113,3 +113,9 @@ export interface BannerQueryResponse {
     items: Array<BannerProps>;
   };
 }
+
+export interface CategoriesProps {
+  selectedCategory: string | null;
+  setSelectedCategory: any;
+  products?: ProductProps[];
+}

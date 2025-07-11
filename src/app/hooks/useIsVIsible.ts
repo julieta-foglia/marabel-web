@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 
-export function useIsVisible(ref: RefObject<HTMLDivElement>) {
+export function useIsVisible(ref: RefObject<HTMLDivElement | null>) {
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ export function useIsVisible(ref: RefObject<HTMLDivElement>) {
       setIntersecting(entry.isIntersecting);
     });
 
-    observer.observe(ref.current);
+    observer.observe(ref.current!);
     return () => {
       observer.disconnect();
     };

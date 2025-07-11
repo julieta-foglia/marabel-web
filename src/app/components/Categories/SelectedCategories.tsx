@@ -1,9 +1,5 @@
+import { CategoriesProps } from "@/app/types";
 import MaterialIcon from "../MaterialIcon";
-
-interface CategoriesProps {
-  selectedCategory: string | null;
-  setSelectedCategory: (arg?: string | null) => void;
-}
 
 export default function SelectedCategories({
   selectedCategory,

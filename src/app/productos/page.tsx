@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useQueryState } from "nuqs";
-import { useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { useGetProducts } from "../cms";
 import Categories from "../components/Categories/Categories";
 import SelectedCategories from "../components/Categories/SelectedCategories";
@@ -23,11 +23,11 @@ export default function Productos() {
     if (preSelectedCategory) {
       setSelectedCategory(preSelectedCategory);
     }
-  }, [preSelectedCategory]);
+  }, [preSelectedCategory, setSelectedCategory]);
 
   useEffect(() => {
     getProducts({ category: "" });
-  }, []);
+  }, [getProducts]);
 
   const mappedProducts = useMemo(() => {
     if (!selectedCategory) {
@@ -40,34 +40,36 @@ export default function Productos() {
   }, [products, selectedCategory]);
 
   return (
-    <div className="pt-10 flex flex-col relative flex-1 mb-6">
-      <p className="text-2xl md:text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-6 md:mx-20">
-        Productos
-      </p>
-      <div className="flex flex-col md:flex-row gap-10 pt-8 px-6 md:px-20 z-10">
-        <div className="flex flex-col gap-8">
-          <Categories
-            products={products}
-            setSelectedCategory={setSelectedCategory}
-            selectedCategory={selectedCategory}
-          />
-          {selectedCategory && (
-            <SelectedCategories
+    <Suspense>
+      <div className="pt-10 flex flex-col relative flex-1 mb-6">
+        <p className="text-2xl md:text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-6 md:mx-20">
+          Productos
+        </p>
+        <div className="flex flex-col md:flex-row gap-10 pt-8 px-6 md:px-20 z-10">
+          <div className="flex flex-col gap-8">
+            <Categories
+              products={products}
               setSelectedCategory={setSelectedCategory}
               selectedCategory={selectedCategory}
             />
-          )}
-        </div>
+            {selectedCategory && (
+              <SelectedCategories
+                setSelectedCategory={setSelectedCategory}
+                selectedCategory={selectedCategory}
+              />
+            )}
+          </div>
 
-        <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10">
-          {mappedProducts?.map((product, index) => (
-            <ProductCard {...product} key={index} />
-          ))}
+          <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10">
+            {mappedProducts?.map((product, index) => (
+              <ProductCard {...product} key={index} />
+            ))}
+          </div>
+        </div>
+        <div className="absolute bottom-10 w-full overflow-hidden">
+          <CrossSvg />
         </div>
       </div>
-      <div className="absolute bottom-10 w-full overflow-hidden">
-        <CrossSvg />
-      </div>
-    </div>
+    </Suspense>
   );
 }

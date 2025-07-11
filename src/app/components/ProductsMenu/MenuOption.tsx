@@ -7,13 +7,19 @@ import MaterialIcon from "../MaterialIcon";
 export interface MenuOptionProps {
   nombre: string;
   icono: string;
+  onClick?: () => void;
 }
 
-export default function MenuOption({ nombre, icono }: MenuOptionProps) {
+export default function MenuOption({
+  nombre,
+  icono,
+  onClick,
+}: MenuOptionProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link
+      onClick={onClick}
       href={`/productos?categoria=${nombre}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

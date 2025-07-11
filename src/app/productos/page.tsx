@@ -60,7 +60,7 @@ export default function Productos() {
             )}
           </div>
 
-          <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10">
+          <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10 w-full">
             {mappedProducts?.map((product, index) => (
               <ProductCard {...product} key={index} />
             ))}

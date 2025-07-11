@@ -36,11 +36,11 @@ export default async function DetalleProducto({
               className="rounded-lg shadow-xl"
             />
           </div>
-          <div>
+          <div className="flex flex-col">
             <p className="text-3xl text-primary font-semibold font-[family-name:var(--font-raleway)]">
               {product.titulo}
             </p>
-            <p className="text-justify md:text-center text-xl text-grey-primary py-6">
+            <p className="text-justify text-xl text-grey-primary py-6">
               {product.descripcion}
             </p>
             <div className="flex flex-row justify-between gap-2 text-xl text-grey-primary border-t border-t-gray-300 py-4">

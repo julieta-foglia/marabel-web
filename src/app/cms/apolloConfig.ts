@@ -18,14 +18,14 @@ export const defaultOptions: DefaultOptions = {
 };
 
 const httpLink = createHttpLink({
-  uri: "https://graphql.contentful.com/content/v1/spaces/lxeukizmc9ta/environments/master",
+  uri: process.env.NEXT_PUBLIC_CONTENTFUL_URL,
 });
 
 const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: `Bearer N390hQR6IiYxAauwrrGpGnIW9t1bDZQasZtt7_uhnLw`,
+      authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_SECRET}`,
     },
   };
 });

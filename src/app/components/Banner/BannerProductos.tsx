@@ -22,7 +22,7 @@ export default function BannerProductos({
     <div
       ref={ref}
       className={clsx(
-        "flex flex-col bg-white gap-8 w-full grow py-10 px-10 md:px-0 items-center justify-center relative",
+        "flex flex-col bg-white gap-8 w-full grow py-10 px-10 lg:px-0 items-center justify-center relative",
         `transition-opacity ease-in duration-700 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`
@@ -39,7 +39,7 @@ export default function BannerProductos({
         boton={boton}
         centered
       />
-      <div className="grid grid-cols-2 md:grid-cols-4 md:gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-4">
         {imagenCollection.items?.map((product) => (
           <Link
             href={product.link}

@@ -24,13 +24,13 @@ export default function BannerContent({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-2 md:text-left md:justify-between h-52 z-10 text-center items-center justify-center",
+        "flex flex-col gap-2 lg:justify-between h-52 z-10 text-center items-center justify-center",
         centered ? "text-center justify-center" : ""
       )}
     >
       <div>
         {pretitulo && (
-          <p className="font-[family-name:var(--font-raleway)] text-sm md:text-lg text-accent font-semibold">
+          <p className="font-[family-name:var(--font-raleway)] text-sm lg:text-lg text-accent font-semibold">
             {pretitulo}
           </p>
         )}
@@ -38,7 +38,7 @@ export default function BannerContent({
           <p
             className={clsx(
               " text-primary font-semibold mt-2 text-3xl",
-              centered ? "md:text-7xl" : "md:text-5xl"
+              centered ? "lg:text-7xl" : "lg:text-5xl"
             )}
           >
             {titulo}
@@ -48,7 +48,7 @@ export default function BannerContent({
           <p
             className={clsx(
               "mt-4",
-              dark ? "text-grey-primary font-semibold text-base md:text-lg" : ""
+              dark ? "text-grey-primary font-semibold text-base lg:text-lg" : ""
             )}
           >
             {subtitulo}
@@ -58,7 +58,7 @@ export default function BannerContent({
       {boton && (
         <Link
           href={boton.url}
-          className="font-[family-name:var(--font-nunito)] font-bold w-full md:w-fit hover:border cursor-box zoom-in py-2 px-4 rounded-lg text-white bg-accent shadow-lg"
+          className="font-[family-name:var(--font-nunito)] font-bold w-full lg:w-fit hover:border cursor-box zoom-in py-2 px-4 rounded-lg text-white bg-accent shadow-lg"
         >
           {boton.texto}
         </Link>

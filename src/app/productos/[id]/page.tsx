@@ -17,7 +17,7 @@ export default async function DetalleProducto({
   const [product] = data.data.productoCollection.items;
 
   return (
-    <div className="px-8 md:px-20 pb-20 pt-10 flex flex-col relative">
+    <div className="px-8 lg:px-20 pb-20 pt-10 flex flex-col relative">
       <div className="flex flex-row gap-2 items-center pb-4">
         <Link href="/productos" className="cursor-pointer text-lg">
           Productos
@@ -25,8 +25,8 @@ export default async function DetalleProducto({
         <MaterialIcon name="arrow_forward_ios" fontSize={16} />
         <p className="font-bold text-lg">{product.titulo}</p>
       </div>
-      <div className="flex flex-col md:flex-row gap-10 pt-6">
-        <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-10 pt-6">
+        <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col gap-2 w-full">
             <Image
               src={product.imagenCollection?.items[0].url}
@@ -36,7 +36,7 @@ export default async function DetalleProducto({
               className="rounded-lg shadow-xl"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col grow">
             <p className="text-3xl text-primary font-semibold font-[family-name:var(--font-raleway)]">
               {product.titulo}
             </p>

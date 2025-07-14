@@ -8,8 +8,8 @@ import { OrganicSvg } from "../Svg/OrganicSvg";
 import BannerContent from "./BannerContent";
 
 const DISPOSICION: Record<string, string> = {
-  "imagen a izquierda": "flex-col md:flex-row",
-  "imagen a derecha": "flex-col-reverse pt-4 md:pt-0 md:flex-row-reverse",
+  "imagen a izquierda": "flex-col lg:flex-row",
+  "imagen a derecha": "flex-col-reverse pt-4 lg:pt-0 lg:flex-row-reverse",
 };
 
 const SVG: Record<string, string> = {

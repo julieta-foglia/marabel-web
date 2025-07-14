@@ -42,10 +42,10 @@ export default function Productos() {
   return (
     <Suspense>
       <div className="pt-10 flex flex-col relative flex-1 mb-6">
-        <p className="text-2xl md:text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-6 md:mx-20">
+        <p className="text-2xl lg:text-4xl font-medium border-b border-b-gray-300 pb-4 text-grey-primary mx-6 lg:mx-20">
           Productos
         </p>
-        <div className="flex flex-col md:flex-row gap-10 pt-8 px-6 md:px-20 z-10">
+        <div className="flex flex-col lg:flex-row gap-10 pt-8 px-6 lg:px-20 z-10">
           <div className="flex flex-col gap-8">
             <Categories
               products={products}
@@ -60,7 +60,7 @@ export default function Productos() {
             )}
           </div>
 
-          <div className="flex flex-col md:grid md:grid-cols-4 gap-2 z-10 w-full">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-2 lg:gap-3 z-10 w-full">
             {mappedProducts?.map((product, index) => (
               <ProductCard {...product} key={index} />
             ))}

@@ -42,20 +42,20 @@ export default function Categories({
 
   return (
     <div>
-      <p className="text-sm text-primary font-semibold md:hidden mb-2">
+      <p className="text-sm text-primary font-semibold lg:hidden mb-2">
         Categorías
       </p>
-      <div className="flex flex-row md:flex-col gap-2 items-center justify-between md:justify-center md:items-start overflow-x-scroll">
-        <p className="hidden md:flex md:text-xl text-primary font-semibold">
+      <div className="flex flex-row lg:flex-col gap-2 items-center justify-between lg:justify-center lg:items-start overflow-x-scroll">
+        <p className="hidden lg:flex lg:text-xl text-primary font-semibold">
           Categorías
         </p>
         {orderedCategories?.map((cat) => (
           <button
             className={clsx(
-              "flex flex-row  items-center gap-1 md:gap-2 cursor-pointer border border-secondary md:border-0 rounded-full md:rounded-0 p-2 md:p-0",
+              "flex flex-row  items-center gap-1 lg:gap-2 cursor-pointer border border-secondary lg:border-0 rounded-full lg:rounded-0 p-2 lg:p-0",
               selectedCategory === cat!.nombre
-                ? "bg-secondary md:bg-transparent transition-all ease-in duration-150"
-                : "bg-white md:bg-transparent"
+                ? "bg-secondary lg:bg-transparent transition-all ease-in duration-150"
+                : "bg-white lg:bg-transparent"
             )}
             onClick={() =>
               setSelectedCategory(
@@ -67,7 +67,7 @@ export default function Categories({
             key={cat!.nombre}
           >
             <MaterialIcon name={cat!.icono} />
-            <p className="hover:underline hover:underline-offset-4 hover:decoration-primary text-xs md:text-base">
+            <p className="hover:underline hover:underline-offset-4 hover:decoration-primary text-xs lg:text-base">
               {cat!.nombre}
             </p>
           </button>

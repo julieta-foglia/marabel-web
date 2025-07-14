@@ -14,11 +14,11 @@ export default function ProductsMenu({ categories }: ProductsMenuProps) {
 
   return (
     <div
-      className="relative inline-block z-20 hover:scale-110 transition-all ease-in"
+      className="relative inline-block z-20"
       onMouseEnter={() => setShowProductsMenu(true)}
       onMouseLeave={() => setShowProductsMenu(false)}
     >
-      <Link href="/productos" className="hover:text-accent ">
+      <Link href="/productos" className="px-2 hover:font-bold ">
         Productos
       </Link>
       {showProductsMenu && (

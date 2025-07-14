@@ -15,7 +15,7 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="flex md:hidden">
+    <div className="flex lg:hidden">
       <button onClick={() => setShowMenu(true)}>
         <MaterialIcon name="menu" />
       </button>

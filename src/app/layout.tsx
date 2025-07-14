@@ -42,7 +42,7 @@ export default function RootLayout({
               className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
             >
               <Header />
-              <main className="font-[family-name:var(--font-nunito)] flex-1">
+              <main className="font-[family-name:var(--font-nunito)] flex-1 overflow-x-hidden md:overflow-x-scroll">
                 {children}
               </main>
               <Footer />

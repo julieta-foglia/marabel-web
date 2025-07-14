@@ -22,7 +22,7 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
 
       <div
         className={clsx(
-          "absolute top-0 right-0 w-[350px] h-screen bg-white z-20 rounded-l-3xl border-l border-l-orange-200 shadow-2xl p-5 transform transition-transform duration-300 ease-in-out",
+          "fixed top-0 right-0 w-[350px] h-screen bg-white z-20 rounded-l-3xl border-l border-l-orange-200 shadow-2xl p-5 transform transition-transform duration-300 ease-in-out",
           showMenu ? "translate-x-0" : "translate-x-full"
         )}
       >

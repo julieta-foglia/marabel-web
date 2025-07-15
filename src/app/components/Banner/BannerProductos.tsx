@@ -18,6 +18,9 @@ export default function BannerProductos({
   const ref = useRef<HTMLDivElement | null>(null);
   const isVisible = useIsVisible(ref);
 
+  const gridCols =
+    imagenCollection.items.length < 4 ? "lg:grid-cols-2" : "lg:grid-cols-4";
+
   return (
     <div
       ref={ref}
@@ -39,7 +42,7 @@ export default function BannerProductos({
         boton={boton}
         centered
       />
-      <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-4">
+      <div className={clsx("lg:grid lg:gap-4", gridCols)}>
         {imagenCollection.items?.map((product) => (
           <Link
             href={product.link}
@@ -54,7 +57,7 @@ export default function BannerProductos({
               height={200}
               width={200}
               alt={product.titulo}
-              className="rounded-lg"
+              className="rounded-lg object-cover h-[100%]"
             />
           </Link>
         ))}

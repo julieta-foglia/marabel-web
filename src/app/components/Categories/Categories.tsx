@@ -13,8 +13,15 @@ export default function Categories({
 }: CategoriesProps) {
   const categories: CategoriesArrayProps = useMemo(() => {
     if (products) {
-      const mappedCategories: Array<CategoryProps> = products.map(
-        (product) => product.categoria
+      const mappedCategories: Array<CategoryProps> = products.reduce(
+        (acc: Array<CategoryProps>, curr) => {
+          if (curr.categoria) {
+            acc.push(curr.categoria);
+          }
+
+          return acc;
+        },
+        []
       );
 
       return Array.from(

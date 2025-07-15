@@ -31,6 +31,9 @@ export default async function Header() {
 
       <ol className="flex-row gap-5 font-semibold text-shadow-grey-primary text-lg hidden lg:flex">
         <ProductsMenu categories={categories} />
+        <Link href="/fragancias" className="px-2 hover:font-bold w-24">
+          Fragancias
+        </Link>
         <Link href="/contacto" className="px-2 hover:font-bold w-24">
           Contacto
         </Link>

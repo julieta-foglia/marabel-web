@@ -28,9 +28,11 @@ export const useGetProducts = () => {
     mutationFn: (payload?: Payload) => getProductsMutate(payload),
   });
 
+  const mappedProducts = data?.filter((item) => item.categoria !== null);
+
   return {
     getProducts,
-    products: data,
+    products: mappedProducts,
     error,
     isPending,
     isSuccess,

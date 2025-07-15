@@ -118,8 +118,12 @@ query MyQuery {
         nombre
       }
       descripcion
-      contenido
-      presentacion
+      caracteristicasCollection(limit: 5) {
+        items {
+          textoCaracteristica
+          tituloCaracteristica
+        }
+      }
       imagenCollection(limit: 1) {
         items {
           url

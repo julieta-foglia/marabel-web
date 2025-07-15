@@ -69,6 +69,13 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
             </div>
           </div>
           <Link
+            href="/fragancias"
+            className="font-semibold hover:font-bold w-24"
+            onClick={() => setShowMenu(false)}
+          >
+            Fragancias
+          </Link>
+          <Link
             href="/contacto"
             className="font-semibold hover:font-bold w-24"
             onClick={() => setShowMenu(false)}

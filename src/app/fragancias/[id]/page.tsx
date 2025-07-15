@@ -5,7 +5,7 @@ import Breadcrumb from "@/app/components/Breadcrumb";
 import { ProductQueryResponse } from "@/app/types";
 import Image from "next/image";
 
-export default async function DetalleProducto({
+export default async function DetalleFragancia({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -18,7 +18,7 @@ export default async function DetalleProducto({
   return (
     <div className="px-8 lg:px-20 pb-20 pt-10 flex flex-col relative">
       <Breadcrumb
-        initial={{ title: "Productos", link: "/productos" }}
+        initial={{ title: "Fragancias", link: "/fragancias" }}
         title={product.titulo}
       />
       <div className="flex flex-col items-center lg:items-start lg:flex-row gap-10 pt-6">

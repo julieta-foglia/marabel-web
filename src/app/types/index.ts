@@ -64,8 +64,9 @@ export interface ProductProps {
   imagenCollection: {
     items: Array<{ url: string }>;
   };
-  presentacion?: string;
-  contenido?: string;
+  caracteristicasCollection: {
+    items: Array<{ textoCaracteristica: string; tituloCaracteristica: string }>;
+  };
   descripcion?: string;
 }
 

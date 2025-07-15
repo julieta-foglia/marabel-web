@@ -32,7 +32,7 @@ export default function BannerImagen({
     <div
       ref={ref}
       className={clsx(
-        "flex bg-white gap-8 w-[95%] grow px-10 items-center justify-center relative rounded-lg overflow-hidden",
+        "flex bg-white gap-8 w-[95%] grow px-10 min-h-[440px] items-center justify-center relative rounded-lg overflow-hidden",
         DISPOSICION[disposicion],
         `transition-opacity ease-in duration-700 ${
           isVisible ? "opacity-100" : "opacity-0"

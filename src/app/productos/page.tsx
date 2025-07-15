@@ -66,7 +66,7 @@ export default function Productos() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-10 w-full overflow-hidden">
+        <div className="absolute top-10 w-full overflow-hidden">
           <CrossSvg />
         </div>
       </div>

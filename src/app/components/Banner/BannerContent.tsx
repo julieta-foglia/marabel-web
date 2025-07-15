@@ -30,14 +30,14 @@ export default function BannerContent({
     >
       <div>
         {pretitulo && (
-          <p className="font-[family-name:var(--font-raleway)] text-sm lg:text-lg text-accent font-semibold">
+          <p className="font-[family-name:var(--font-raleway)] text-base lg:text-lg text-accent font-semibold">
             {pretitulo}
           </p>
         )}
         {titulo && (
           <p
             className={clsx(
-              " text-primary font-semibold mt-2 text-3xl",
+              " text-primary font-semibold mt-2 text-4xl",
               centered ? "lg:text-7xl" : "lg:text-5xl"
             )}
           >
@@ -58,7 +58,7 @@ export default function BannerContent({
       {boton && (
         <Link
           href={boton.url}
-          className="font-[family-name:var(--font-nunito)] font-bold w-full lg:w-fit hover:border cursor-box zoom-in py-2 px-4 rounded-lg text-white bg-accent shadow-lg"
+          className="font-[family-name:var(--font-nunito)] font-bold w-full lg:w-[250px] transition-all ease-in hover:scale-105 py-2 px-4 rounded-lg text-white bg-accent shadow-lg"
         >
           {boton.texto}
         </Link>

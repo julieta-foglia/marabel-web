@@ -14,7 +14,7 @@ export default function ProductsMenu({ categories }: ProductsMenuProps) {
 
   return (
     <div
-      className="relative inline-block z-20"
+      className="relative inline-block z-20 w-24"
       onMouseEnter={() => setShowProductsMenu(true)}
       onMouseLeave={() => setShowProductsMenu(false)}
     >

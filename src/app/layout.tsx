@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Raleway } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import { NuqsAdapter } from "nuqs/adapters/next";
 import { Suspense } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QueryClientProviderComponent from "./components/queryClientProvider";
+
 import "./globals.css";
 
 const nunito = Nunito_Sans({
@@ -29,18 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?display=optional&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        />
-      </head>
       <NuqsAdapter>
         <Suspense>
           <QueryClientProviderComponent>
             <body
               className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
             >
+              <NextTopLoader height={5} showSpinner color="#ffb770" />
               <Header />
               <main className="font-[family-name:var(--font-nunito)] flex-1 overflow-x-hidden lg:overflow-x-scroll">
                 {children}

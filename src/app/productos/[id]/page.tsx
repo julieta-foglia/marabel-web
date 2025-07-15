@@ -11,8 +11,7 @@ export default async function DetalleProducto({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-
-  const query = productQuery(id.replaceAll("-", " "));
+  const query = productQuery(decodeURIComponent(id).replaceAll("-", " "));
   const data = await getQuery<ProductQueryResponse>({ query });
   const [product] = data.data.productoCollection.items;
 
@@ -26,8 +25,8 @@ export default async function DetalleProducto({
         <p className="font-bold text-lg">{product.titulo}</p>
       </div>
       <div className="flex flex-col lg:flex-row gap-10 pt-6">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col items-center lg:items-start lg:flex-row gap-8">
+          <div className="flex flex-col gap-2 w-full lg:max-w-[500px] items-center lg:items-start">
             <Image
               src={product.imagenCollection?.items[0].url}
               height={500}
@@ -37,7 +36,7 @@ export default async function DetalleProducto({
             />
           </div>
           <div className="flex flex-col grow">
-            <p className="text-3xl text-primary font-semibold font-[family-name:var(--font-raleway)]">
+            <p className="text-3xl text-primary text-center lg:text-left font-semibold font-[family-name:var(--font-raleway)]">
               {product.titulo}
             </p>
             <p className="text-justify text-xl text-grey-primary py-6">

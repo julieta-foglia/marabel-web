@@ -30,11 +30,11 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
           <MaterialIcon name="close" className="absolute top-4 right-4" />
         </button>
         <ol className="flex flex-col gap-5 text-shadow-grey-primary text-base">
-          <div className="relative inline-block z-20 hover:scale-110 transition-all ease-in">
+          <div className="relative inline-block z-20 transition-all ease-in">
             <div className={clsx("flex flex-row gap-2 relative")}>
               <Link
                 href="/productos"
-                className="font-semibold"
+                className="font-semibold hover:font-bold w-20"
                 onClick={() => setShowMenu(false)}
               >
                 Productos
@@ -70,7 +70,7 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
           </div>
           <Link
             href="/contacto"
-            className="font-semibold"
+            className="font-semibold hover:font-bold w-24"
             onClick={() => setShowMenu(false)}
           >
             Contacto

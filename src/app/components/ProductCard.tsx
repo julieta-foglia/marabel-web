@@ -5,8 +5,10 @@ import { ProductProps } from "../types";
 export default function ProductCard(product: ProductProps) {
   return (
     <Link
-      href={`/productos/${product.titulo.replaceAll(" ", "-")}`}
-      className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center transition-all ease-in hover:scale-105 min-h-44 lg:min-w-44 border border-transparent hover:border-secondary"
+      href={`/productos/${encodeURIComponent(
+        product.titulo.replaceAll(" ", "-")
+      )}`}
+      className="bg-white m-2 rounded-lg p-2 shadow-md flex flex-col items-center justify-between text-center transition-all ease-in hover:scale-105 min-h-44 lg:min-h-[300px] lg:min-w-44 border border-transparent hover:border-secondary"
       key={product.titulo}
     >
       <>
@@ -16,9 +18,7 @@ export default function ProductCard(product: ProductProps) {
           width={200}
           alt={product.titulo}
         />
-        <p className="font-[family-name:var(--font-raleway)] text-lg font-medium">
-          {product.titulo}
-        </p>
+        <p className="text-lg font-medium">{product.titulo}</p>
       </>
     </Link>
   );

@@ -16,6 +16,7 @@ export interface BannerProps {
     url: string;
     texto: string;
   };
+  link: string;
   imagenCollection: {
     items: Array<{
       link: string;

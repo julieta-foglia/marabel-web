@@ -66,6 +66,7 @@ query MyQuery {
             url
             texto
           }
+          link
           imagenCollection(limit: 4) {
             items {
               link

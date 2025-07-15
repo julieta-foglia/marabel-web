@@ -14,7 +14,7 @@ export default async function Contacto() {
   }
 
   return (
-    <div className="font-[family-name:var(--font-nunito)]">
+    <div>
       <HeroBanner title="contacto" />
       <div className="p-12 mb-10">
         <div className="flex flex-col gap-4">

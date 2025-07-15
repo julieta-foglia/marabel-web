@@ -23,7 +23,7 @@ export default function LinkIcon({
         className
       )}
     >
-      <Image src={icon} width={30} height={30} alt={text ?? ""} />
+      <Image src={icon} width={40} height={40} alt={text ?? ""} />
       {text}
     </Link>
   );

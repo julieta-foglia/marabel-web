@@ -20,6 +20,7 @@ export const getQuery = async <T>({
 
   const { data } = await Client.query<T>({
     query,
+    fetchPolicy: "no-cache",
     variables,
   });
 

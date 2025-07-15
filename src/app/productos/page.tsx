@@ -15,15 +15,11 @@ export default function Productos() {
     .get("categoria")
     ?.toLocaleLowerCase();
 
-  const [selectedCategory, setSelectedCategory] = useQueryState("categoria");
+  const [selectedCategory, setSelectedCategory] = useQueryState("categoria", {
+    defaultValue: preSelectedCategory ?? "",
+  });
 
   const { products, getProducts } = useGetProducts();
-
-  useEffect(() => {
-    if (preSelectedCategory) {
-      setSelectedCategory(preSelectedCategory);
-    }
-  }, [preSelectedCategory, setSelectedCategory]);
 
   useEffect(() => {
     getProducts({ category: "" });
@@ -59,7 +55,6 @@ export default function Productos() {
               />
             )}
           </div>
-
           <div className="flex flex-col lg:grid lg:grid-cols-3 gap-2 lg:gap-3 z-10 w-full">
             {mappedProducts?.map((product, index) => (
               <ProductCard {...product} key={index} />

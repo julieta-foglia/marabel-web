@@ -13,7 +13,7 @@ export default async function Footer() {
   }
 
   return (
-    <footer className="bg-white px-10 py-5 shadow-2xs flex flex-row items-center justify-center gap-4 w-full">
+    <footer className="bg-white px-10 py-5 shadow-2xs flex flex-row items-center justify-center gap-2 w-full">
       {page.linksContactoCollection.items.map((item: LinkProps) => {
         return (
           <LinkIcon

@@ -144,3 +144,17 @@ export const categoryQuery = gql`
     }
   }
 `;
+
+export const whatsappQuery = gql`
+  query MyQuery {
+    paginaCollection(where: { tituloPagina: "Contacto" }) {
+      items {
+        linksContactoCollection(where: { id: "whatsapp" }) {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;

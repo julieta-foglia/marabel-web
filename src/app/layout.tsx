@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QueryClientProviderComponent from "./components/queryClientProvider";
 
+import WhatsappSticky from "./components/WhatsappSticky";
 import "./globals.css";
 
 const nunito = Nunito_Sans({
@@ -77,6 +78,7 @@ export default function RootLayout({
               <main className="font-[family-name:var(--font-nunito)] flex-1 overflow-x-hidden lg:overflow-x-scroll">
                 {children}
               </main>
+              <WhatsappSticky />
               <Footer />
             </body>
           </QueryClientProviderComponent>

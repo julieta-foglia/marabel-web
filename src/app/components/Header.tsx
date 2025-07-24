@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categoryQuery, imageFileQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
 import { AssetQueryResponse, CategoryQueryResponse } from "../types";
+import CartMenu from "./CartMenu/CartMenu";
 import HeaderMenu from "./HeaderMenu";
 import ProductsMenu from "./ProductsMenu/ProductsMenu";
 
@@ -37,6 +38,7 @@ export default async function Header() {
         <Link href="/contacto" className="px-2 hover:font-bold w-24">
           Contacto
         </Link>
+        <CartMenu />
       </ol>
     </header>
   );

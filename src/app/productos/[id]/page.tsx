@@ -2,6 +2,7 @@ export const revalidate = 60;
 import { productQuery } from "@/app/cms/constants";
 import { getQuery } from "@/app/cms/getQuery";
 import Breadcrumb from "@/app/components/Breadcrumb";
+import ProductSelection from "@/app/components/ProductSelection";
 import { ProductQueryResponse } from "@/app/types";
 import Image from "next/image";
 
@@ -16,7 +17,7 @@ export default async function DetalleProducto({
   const [product] = data.data.productoCollection.items;
 
   return (
-    <div className="px-8 lg:px-20 pb-20 pt-10 flex flex-col relative">
+    <div className="px-8 lg:px-20 pb-16 pt-10 flex flex-col relative">
       <Breadcrumb
         initial={{ title: "Productos", link: "/productos" }}
         title={product.titulo}
@@ -38,16 +39,26 @@ export default async function DetalleProducto({
           <p className="text-justify text-xl text-grey-primary py-6">
             {product.descripcion}
           </p>
-
-          {product.caracteristicasCollection.items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-row justify-between gap-2 text-xl text-grey-primary border-t border-t-gray-300 py-4"
-            >
-              <p className="font-bold">{item.tituloCaracteristica}</p>
-              <p>{item.textoCaracteristica}</p>
-            </div>
-          ))}
+          <p className="font-bold text-2xl pb-4">Características</p>
+          {product.caracteristicasCollection.items
+            .filter((item) => item !== null)
+            .map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-row justify-between gap-2 text-xl text-grey-primary border-t border-t-gray-300 py-4"
+              >
+                <p className="font-bold">{item.tituloCaracteristica}</p>
+                <p>{item.textoCaracteristica}</p>
+              </div>
+            ))}
+          <div className="flex flex-col gap-2 border-t border-t-gray-300 pt-10">
+            <p className="font-bold text-2xl pb-4">Realizar pedido</p>
+            <ProductSelection
+              fragrances={product.fragancias}
+              name={product.titulo}
+              image={product.imagenCollection?.items[0].url}
+            />
+          </div>
         </div>
       </div>
     </div>

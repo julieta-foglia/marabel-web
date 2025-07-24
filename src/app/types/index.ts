@@ -68,6 +68,7 @@ export interface ProductProps {
     items: Array<{ textoCaracteristica: string; tituloCaracteristica: string }>;
   };
   descripcion?: string;
+  fragancias: Array<string>;
 }
 
 export interface ProductQueryResponse {

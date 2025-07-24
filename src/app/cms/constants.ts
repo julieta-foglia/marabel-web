@@ -129,6 +129,7 @@ query MyQuery {
           url
         }
       }
+      fragancias
     }
   }
 }

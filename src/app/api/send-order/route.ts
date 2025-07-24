@@ -6,8 +6,8 @@ export async function POST(req: Request) {
 
   const transporter = nodemailer.createTransport({
     host: "smtppro.zoho.com",
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false, // ← STARTTLS
     auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS,
@@ -37,6 +37,7 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptions);
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err) {
+    console.error("MAIL ERROR:", err);
     return new Response(JSON.stringify({ error: (err as Error).message }), {
       status: 500,
     });

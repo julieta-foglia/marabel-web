@@ -15,11 +15,14 @@ export default async function WhatsappSticky() {
   const link = page.linksContactoCollection.items[0].url;
 
   return (
-    <Link href={link} className="fixed bottom-12 right-12 w-fit z-50">
+    <Link
+      href={link}
+      className="fixed bottom-5 right-5 lg:bottom-12 lg:right-12 z-50 w-12 h-12 lg:w-16 lg:h-16"
+    >
       <Image
         src="/whatsapp.png"
-        width={60}
-        height={60}
+        fill
+        className="object-contain"
         alt="contactar por whatsapp"
       />
     </Link>

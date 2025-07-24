@@ -4,6 +4,7 @@ import { categoryQuery, imageFileQuery } from "../cms/constants";
 import { getQuery } from "../cms/getQuery";
 import { AssetQueryResponse, CategoryQueryResponse } from "../types";
 import CartMenu from "./CartMenu/CartMenu";
+import CartMenuResponsive from "./CartMenu/CartMenuResponsive";
 import HeaderMenu from "./HeaderMenu";
 import ProductsMenu from "./ProductsMenu/ProductsMenu";
 
@@ -28,7 +29,10 @@ export default async function Header() {
           className="w-16 h-10 lg:w-full lg:h-full"
         />
       </Link>
-      <HeaderMenu categories={categories} />
+      <div className="flex flex-row gap-6 items-center">
+        <CartMenuResponsive />
+        <HeaderMenu categories={categories} />
+      </div>
 
       <ol className="flex-row gap-5 font-semibold text-shadow-grey-primary text-lg hidden lg:flex">
         <ProductsMenu categories={categories} />

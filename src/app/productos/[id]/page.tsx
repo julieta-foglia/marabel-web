@@ -32,7 +32,7 @@ export default async function DetalleProducto({
             className="rounded-lg shadow-xl"
           />
         </div>
-        <div className="flex flex-col grow">
+        <div className="flex flex-col w-full lg:grow">
           <p className="text-3xl text-primary text-center lg:text-left font-semibold font-[family-name:var(--font-raleway)]">
             {product.titulo}
           </p>

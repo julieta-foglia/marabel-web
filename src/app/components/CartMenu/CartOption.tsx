@@ -24,7 +24,7 @@ export default function CartOption({
   return (
     <div
       className={clsx(
-        "cursor-pointer flex flex-row items-center justify-between gap-10",
+        "flex flex-row items-center justify-between gap-10",
         noRemove ? "" : "px-4 py-4"
       )}
     >
@@ -37,14 +37,14 @@ export default function CartOption({
           </p>
         </div>
       </div>
-      <div className="flex flex-row gap-2 items-center justify-center">
-        <p className="text-xl">{quantity}</p>
+      <div className="flex flex-row gap-4 items-baseline justify-center">
+        <p className="text-xl flex self-baseline">{quantity}</p>
         {!noRemove && (
           <button
-            className="cursor-pointer"
+            className="flex items-center justify-center appearance-none cursor-pointer w-4 h-4 bg-accent rounded-full"
             onClick={() => removeFromCart({ name, fragrance })}
           >
-            <MaterialIcon name="close" fontSize={20} />
+            <MaterialIcon name="close" fontSize={14} className="text-white" />
           </button>
         )}
       </div>

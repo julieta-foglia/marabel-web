@@ -29,6 +29,7 @@ export default function HeaderMenu({ categories }: HeaderMenuProps) {
         <button onClick={() => setShowMenu(false)}>
           <MaterialIcon name="close" className="absolute top-4 right-4" />
         </button>
+
         <ol className="flex flex-col gap-5 text-shadow-grey-primary text-base">
           <div className="relative inline-block z-20 transition-all ease-in">
             <div className={clsx("flex flex-row gap-2 relative")}>

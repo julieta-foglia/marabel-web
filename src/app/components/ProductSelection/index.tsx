@@ -14,7 +14,7 @@ export default function ProductSelection({
   image,
   fragrances,
 }: ProductSelectionProps) {
-  const listRef = useRef(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const { updateCart } = useCartStore();
   const [quantity, setQuantity] = useState(1);
   const [fragrance, setFragrance] = useState<string>("");
@@ -43,8 +43,8 @@ export default function ProductSelection({
   };
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (listRef.current && !listRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (listRef.current && !listRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     }
@@ -59,8 +59,8 @@ export default function ProductSelection({
   }, [open, setOpen]);
 
   return (
-    <div className="flex flex-row justify-between gap-4">
-      <div className="relative inline-block w-64">
+    <div className="flex flex-col lg:flex-row justify-between gap-4">
+      <div className="relative inline-block lg:w-64">
         <button
           onClick={() => setOpen(!open)}
           className="cursor-pointer w-full px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-left text-gray-700 hover:border-gray-400 focus:outline-none"
@@ -72,7 +72,7 @@ export default function ProductSelection({
         {open && (
           <ul
             ref={listRef}
-            className="cursor-pointer absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg"
+            className="cursor-pointer absolute z-50 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg"
           >
             {fragrances?.map((frag) => (
               <li
@@ -81,7 +81,7 @@ export default function ProductSelection({
                   setFragrance(frag);
                   setOpen(false);
                 }}
-                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                className="px-4 py-2 cursor-pointer hover:bg-gray-100 "
               >
                 {frag}
               </li>

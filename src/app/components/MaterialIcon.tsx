@@ -1,4 +1,4 @@
-import "@material-symbols/font-100";
+import "@material-symbols/font-300";
 import clsx from "clsx";
 
 interface MaterialIconProps {

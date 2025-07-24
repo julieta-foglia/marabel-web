@@ -35,6 +35,7 @@ export const OrderModal = ({ isOpen, setIsOpen }: ModalProps) => {
         }),
       });
     } catch (err) {
+      console.log(err);
       setIsLoading(false);
       setError(true);
     } finally {

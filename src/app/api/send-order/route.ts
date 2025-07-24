@@ -1,7 +1,7 @@
 import { Article } from "@/app/stores/cart";
 import nodemailer from "nodemailer";
 
-export async function POST(req) {
+export async function POST(req: Request) {
   const { cart, name, mail, phone } = await req.json();
 
   const transporter = nodemailer.createTransport({
@@ -37,7 +37,7 @@ export async function POST(req) {
     await transporter.sendMail(mailOptions);
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), {
+    return new Response(JSON.stringify({ error: (err as Error).message }), {
       status: 500,
     });
   }

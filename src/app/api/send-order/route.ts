@@ -26,8 +26,10 @@ export async function POST(req) {
     to: "ventas@marabel.com.ar",
     subject: `Nuevo pedido de ${mail}`,
     html: `<p><b>Nombre:</b> ${name}</p>
-    <p><b>Nombre:</b> ${phone}</p>
+    <p><b>Teléfono:</b> ${phone}</p>
            <p><b>Email:</b> ${mail}</p>
+           <br/>
+           <p><b>Pedido:</b></p>
            <ul>${cartHTML}</ul>`,
   };
 

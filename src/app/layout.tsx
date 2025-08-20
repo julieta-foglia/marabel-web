@@ -7,8 +7,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QueryClientProviderComponent from "./components/queryClientProvider";
 
+import { cookies } from "next/headers";
+import { pageQuery } from "./cms/constants";
+import { getQuery } from "./cms/getQuery";
+import UnderMaintenance from "./components/UnderMaintenance";
 import WhatsappSticky from "./components/WhatsappSticky";
 import "./globals.css";
+import { PageQueryResponse } from "./types";
 
 const nunito = Nunito_Sans({
   variable: "--font-nunito",
@@ -60,11 +65,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.marabel.com.ar"),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const query = pageQuery("Home");
+  const data = await getQuery<PageQueryResponse>({ query });
+  const [page] = data.data.paginaCollection.items;
+  const isMaintenance = page.mantenimiento;
+  const code = (await cookies()).get("code");
+
   return (
     <html lang="en">
       <NuqsAdapter>
@@ -73,13 +84,23 @@ export default function RootLayout({
             <body
               className={`${nunito.variable} ${raleway.variable} antialiased flex flex-col min-h-screen`}
             >
-              <NextTopLoader height={5} showSpinner color="#ffb770" />
-              <Header />
-              <main className="font-[family-name:var(--font-nunito)] flex-1 overflow-x-hidden lg:overflow-x-scroll">
-                {children}
-              </main>
-              <WhatsappSticky />
-              <Footer />
+              {isMaintenance && code?.value !== "valid" ? (
+                <>
+                  <UnderMaintenance />
+                  <WhatsappSticky />
+                  <Footer />
+                </>
+              ) : (
+                <>
+                  <NextTopLoader height={5} showSpinner color="#ffb770" />
+                  <Header />
+                  <main className="font-[family-name:var(--font-nunito)] flex-1 overflow-x-hidden lg:overflow-x-scroll">
+                    {children}
+                  </main>
+                  <WhatsappSticky />
+                  <Footer />
+                </>
+              )}
             </body>
           </QueryClientProviderComponent>
         </Suspense>

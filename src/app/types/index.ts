@@ -47,6 +47,7 @@ export interface PageProps {
   bannerCollection: {
     items: Array<BannerProps>;
   };
+  mantenimiento: boolean;
 }
 
 export interface PageQueryResponse {

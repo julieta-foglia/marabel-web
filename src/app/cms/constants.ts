@@ -38,6 +38,7 @@ export const pageQuery = (title: string) => gql`
 query MyQuery {
   paginaCollection(where: {tituloPagina_contains: "${title}"}) {
     items {
+      mantenimiento
       linksContactoCollection(limit: 10) {
         items {
           id
